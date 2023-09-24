@@ -1,10 +1,10 @@
 package web.model;
 
-import javax.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
-@Table (name = "users")
-@NamedQuery(name = "User.getAllUsers", query = "SELECT u FROM User u")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
