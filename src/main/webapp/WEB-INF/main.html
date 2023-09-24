@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+
+<h2 style="color:deeppink">OUR USERS</h2>
+
+<!-- ADDING NEW USER -->
+<form th:action="@{/addUser}" method="post">
+    <fieldset>
+        <legend style="color:deeppink">NEW HERE?</legend>
+        <label for="email">E-MAIL: </label>
+        <input type="text" id="email" name="email" required>
+        <br>
+        <label for="username">USERNAME: </label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <button type="submit" style="color:deeppink" onclick="return confirm('CREATE NEW USER?')">ADD USER</button>
+    </fieldset>
+</form>
+
+<br>
+<!-- USERS LIST -->
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>E-MAIL</th>
+        <th>USERNAME</th>
+        <th> </th>
+        <th> </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.username}"></td>
+        <td>
+            <form th:action="@{/editUser/{id}(id=${user.id})}" method="get">
+                <button type="submit" style="color:deeppink">Edit</button>
+            </form>
+        </td>
+        <!--<td><a th:href="@{/editUser/{id}(id=${user.id})}" style="color:deeppink">Edit</a></td>-->
+        <td>
+            <form th:action="@{/deleteUser}" method="post">
+                <input type="hidden" name="id" th:value="${user.id}">
+                <button type="submit" style="color:deeppink" onclick="return confirm('SURE?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
