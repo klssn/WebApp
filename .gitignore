@@ -1,6 +1,4 @@
 # Project exclude paths
-target/
-src/main/resources/db.properties
-dataSources/
-.idea/
-.idea/workspace.xml
+/target/
+/dataSources/
+/.idea/
