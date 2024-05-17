@@ -7,3 +7,6 @@ The application is a CRUD (Create, Read, Update, Delete) system for managing Use
 - Spring configuration using config class and annotations
 - Database configuration using EntityManager
 - GET and POST mappings
+
+
+The project was recently migrated to Spring Boot for simplified configuration.
